@@ -1,0 +1,12 @@
+# Terraform install steps on Cetnos 7
+set -o pipefail  # trace ERR through pipes
+set -o errtrace  # trace ERR through 'time command' and other functions
+set -o nounset   ## set -u : exit the script if you try to use an uninitialised variable
+set -o errexit   ## set -e : exit the script if any statement returns a non-true return value
+
+
+sudo yum update
+sudo yum install wget unzip
+wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
+sudo unzip ./terraform_0.11.13_linux_amd64.zip -d /usr/local/bin/
+terraform -v
